@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+	<meta charset="UTF-8" />
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
+
+	<meta name="description" content="Generador de badge para markdown">
+	<meta name="author" content="Elinv@2024">
+	<meta content="badge, markdown, generator" name="keywords" />
+
+	<title>Badge Elinv</title>
+
+	<link rel="shortcut icon" href="/favicon.svg">
+	<link rel="stylesheet" href="style.css?v=1">
+
+</head>
+
+<body>
+
+	<main>
+		<h1>
+			<center>
+				<div class="button" onclick=badgeAction(); id="Id_Boton" name="Name_Boton"
+					title="Presione aquí Generar!">
+					ELINV ~ CREAR BADGE
+					<div></div>
+				</div>
+			</center>
+		</h1>
+
+		<!-- Resultados en tabs -->
+		<div class="tab">
+			<button class="tablinks" onclick="openCity(event, 'badgelogolink')">Badge con Logo y Link</button>
+			<button class="tablinks" onclick="openCity(event, 'badgelogo')">Badge sin link y con logo</button>
+			<button class="tablinks" onclick="openCity(event, 'badge')">Badge sin logo ni link</button>
+		</div>
+
+		<div id="badgelogolink" class="tabcontent">
+			<!-- Resultados -->
+			<table id="tabla">
+				<tr>
+					<th>
+						<div id="resBadgeLogLink" style="width: 100%;word-wrap: break-word;"></div>
+					</th>
+				</tr>
+			</table>
+		</div>
+
+		<div id="badgelogo" class="tabcontent">
+			<!-- Resultados -->
+			<table id="tabla">
+				<tr>
+					<th>
+						<div id="resBadgeLogSinLink" style="width: 100%;word-wrap: break-word;"></div>
+					</th>
+				</tr>
+			</table>
+		</div>
+
+		<div id="badge" class="tabcontent">
+			<!-- Resultados -->
+			<table id="tabla">
+				<tr>
+					<th>
+						<div id="resBadgeSinLogSinLink" style="width: 100%;word-wrap: break-word;"></div>
+					</th>
+				</tr>
+			</table>
+		</div>
+
+
+		<hr>
+
+		<!-- Controles -->
+		<table id="tabla">
+			<tr>
+				<th>Item</th>
+				<th>Acción</th>
+			</tr>
+			<tr>
+				<td>
+					<h1>Label:</h1>
+				</td>
+				<td><input id="label" name="label" type="text" value="Elinv" placeholder="Label" /></td>
+			</tr>
+			<tr>
+				<td>
+					<h1>Color del Label:</h1>
+				</td>
+				<td><input id="colorlabel" name="colorlabel" type="color" value="#595959" title="Color Label" /></td>
+			</tr>
+			<tr>
+				<td>
+					<h1>Mensaje:</h1>
+				</td>
+				<td><input id="mensaje" name="mensaje" type="text" value="" placeholder="Mensaje" /></td>
+			</tr>
+			<tr>
+				<td>
+					<h1>Color del Mensaje:</h1>
+				</td>
+				<td><input id="colormensaje" name="colormensaje" type="color" value="#0E80C0" title="Color Mensaje" />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<h1>Elija estilo:</h1>
+				</td>
+				<td>
+					<select id="estilos" class="" name="estilos">
+						<option value="flat">flat</option>
+						<option value="flat-square">flat-square</option>
+						<option value="plastic" selected>plastic</option>
+						<option value="for-the-badge">for-the-badge</option>
+						<option value="social">social</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<h1>Logo:</h1>
+				</td>
+				<td><input type="text" id="logInput" name="logInput" list="logos" value="e">
+					<datalist id="logos">
+						<option value="e" selected>Elinv</option>
+						<option value="aframe">A</option>
+						<option value="academia">A</option>
+						<option value="aclogosfine">Triángulo</option>
+						<option value="affinityphoto">Foto</option>
+						<option value="aiohttp">Conexiones</option>
+						<option value="aiqfome">Fantasma</option>
+						<option value="aircanada">Hoja</option>
+						<option value="airtransat">Estrella</option>
+						<option value="airplayvideo">Video</option>
+						<option value="airtable">Caja</option>
+						<option value="akamai">Signos</option>
+						<option value="alby">Raro</option>
+						<option value="alienware">Alien</option>
+						<option value="almalinux">Alma</option>
+						<option value="amazoncloudwatch">Nubes</option>
+						<option value="amazondocumentdb">Base de datos</option>
+						<option value="ameba">Ameba</option>
+						<option value="amp">Rayo</option>
+						<option value="simpleanalytics">Analitica</option>
+						<option value="sharp">Sharp</option>
+						<option value="securityscorecard">Seguridad</option>
+						<option value="searxng">Buscar</option>
+						<option value="scrapy">Espátula</option>
+						<option value="scribd">Yin Yan</option>
+						<option value="sat1">Satelite</option>
+						<option value="rss">Rss</option>
+						<option value="rome">Roma</option>
+						<option value="robinhood">Pluma</option>
+						<option value="riseup">Estrella</option>
+						<option value="renovatebot">Pincel</option>
+						<option value="renault">Rombo</option>
+						<option value="reactivex">Reactivo</option>
+						<option value="reacthookform">Anotador</option>
+						<option value="rainmeter">Gota</option>
+						<option value="purescript">Script</option>
+						<option value="puma">Puma</option>
+						<option value="pubmed">Publicacion</option>
+						<option value="protocolsdotio">Animal</option>
+						<option value="prometheus">Antorcha</option>
+						<option value="proteus">Atomo</option>
+						<option value="protodotio">Cohete</option>
+						<option value="prestashop">Pinguino</option>
+						<option value="precommit">Pare</option>
+						<option value="powervirtualagents">Charlemos</option>
+						<option value="postman">Correo</option>
+						<option value="pointy">Ave</option>
+						<option value="podcastindex">Audio</option>
+						<option value="playwright">Caretas</option>
+						<option value="pkgsrc">Cubo</option>
+						<option value="phpmyadmin">Velero</option>
+						<option value="photobucket">Tunel</option>
+						<option value="perplexity">Opciones</option>
+						<option value="persistent">Infinito</option>
+						<option value="penpot">Edificio</option>
+						<option value="pastebin">Binario</option>
+						<option value="payhip">Corazón</option>
+						<option value="paperlessngx">Hoja</option>
+						<option value="paramountplus">Montaña</option>
+						<option value="org">unicornio</option>
+						<option value="osgeo">Estrella en circulo</option>
+						<option value="osano">Círculo</option>
+						<option value="osf">Circulos varios</option>
+						<option value="opera">Anillo</option>
+						<option value="openwrt">Wifi</option>
+						<option value="opensea">Velero</option>
+						<option value="openstreetmap">Buscar</option>
+						<option value="openjsfoundation">Conexiones</option>
+						<option value="openmediavault">Items</option>
+						<option value="openaccess">Candado</option>
+						<option value="onlyoffice">Papeles</option>
+						<option value="ocaml">Camello</option>
+						<option value="notion">No</option>
+						<option value="notist">N</option>
+						<option value="nodered">Nodos</option>
+						<option value="nim">Corona</option>
+						<option value="niconico">TV</option>
+						<option value="neutralinojs">Neutron</option>
+						<option value="nbc">Pavo</option>
+						<option value="msi">Dragón</option>
+						<option value="monster">Mendez</option>
+						<option value="monzo">Mendez</option>
+						<option value="monkeytie">Huella digital</option>
+						<option value="minutemailer">Avión de papel</option>
+						<option value="minds">Mente</option>
+						<option value="microsoftword">Documento</option>
+						<option value="microsoft">Ventanas</option>
+						<option value="meteor">Meteoro</option>
+						<option value="mentorcruise">Barco de papel</option>
+						<option value="mediamarkt">Infinito</option>
+						<option value="mariadbfoundation">Foca</option>
+						<option value="mailchimp">Mono</option>
+						<option value="maildotru">Arroba</option>
+						<option value="linux">Pinguino</option>
+						<option value="libuv">Dinosaurio</option>
+						<option value="letsencrypt">Candado</option>
+						<option value="lemmy">Ratón</option>
+						<option value="leagueoflegends">Luis</option>
+						<option value="latex">Picaflor</option>
+						<option value="lastpass">Puntos suspensivos</option>
+						<option value="laragon">Elefante</option>
+						<option value="lamborghini">Toro</option>
+						<option value="kuaishou">Cámara</option>
+						<option value="kofi">Corazón</option>
+						<option value="jenkins">Abuelo</option>
+						<option value="jabber">Lámpara</option>
+						<option value="internetarchive">Archivos de internet</option>
+						<option value="internetcomputer">Infinito</option>
+						<option value="interactiondesignfoundation">Arbol</option>
+						<option value="instructables">Robot</option>
+						<option value="indeed">I</option>
+						<option value="iconify">Cara sonrie</option>
+						<option value="icloud">Nube</option>
+						<option value="iconfinder">Ojo</option>
+						<option value="ibmcloud">Sol sobre nube</option>
+						<option value="i3">Tridente</option>
+						<option value="hootsuite">Panda</option>
+						<option value="homebrew">Chop</option>
+						<option value="homeassistantcommunitystore">Caretas</option>
+						<option value="hey">Mano hey</option>
+						<option value="happycow">Vaca feliz</option>
+						<option value="harbor">Faro</option>
+						<option value="gunicorn">Unicornio</option>
+						<option value="groupme">Mi grupo</option>
+						<option value="greensock">Super</option>
+						<option value="grav">Astronauta gravedad</option>
+						<option value="gradle">Elefante</option>
+						<option value="googlesearchconsole">Herramientas caja</option>
+						<option value="googlehangouts">Comillas</option>
+						<option value="googlemaps">Google maps</option>
+						<option value="googlefit">Corazón</option>
+						<option value="godotengine">Robot</option>
+						<option value="gnu">Toro</option>
+						<option value="githubsponsors">Corazón</option>
+						<option value="github">Gato</option>
+						<option value="githubcopilot">Dos dientes</option>
+						<option value="ghostery">Fantasma</option>
+						<option value="freelancer">Pajaro de papel</option>
+						<option value="fireship">Fuego</option>
+						<option value="fishshell">Pez</option>
+						<option value="falcon">Aguila</option>
+						<option value="fdroid">Droid</option>
+						<option value="etsy">Elinv</option>
+						<option value="eventbrite">Elinv</option>
+						<option value="erpnext">Elinv</option>
+						<option value="engadget">Elinv</option>
+						<option value="enpass">Ojo cerradura</option>
+						<option value="emberdotjs">Elinv</option>
+						<option value="embarcadero">Elinv</option>
+						<option value="elementor">Elinv</option>
+						<option value="elasticsearch">Elinv</option>
+						<option value="egghead">Lentes</option>
+						<option value="aboutdotme">About</option>
+						<option value="HTML">HTML</option>
+					</datalist>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<h1>Color del logo:</h1>
+				</td>
+				<td><input id="colorlogo" name="colorlogo" type="color" value="#ffffff" title="Color Logo" /></td>
+			</tr>
+			<tr>
+				<td>
+					<h1>Ancho del logo:</h1>
+				</td>
+				<td><input type="number" id="anchologo" name="anchologo" placeholder="Ancho del logo" value="16"></td>
+			</tr>
+			<tr>
+				<td>
+					<h1>Link: </h1>
+				</td>
+				<td><input id="link" name="link" type="text" value="https://elinv.musica.ar"
+						placeholder="https://elinv.musica.ar" /></td>
+			</tr>
+			<tr>
+				<td>
+					<h1>Cache en segundos:</h1>
+				</td>
+				<td><input type="number" id="cacheensegundos" name="cacheensegundos" placeholder="Cache en segundos"
+						value="500" onclick="null"></td>
+			</tr>
+			<tr>
+				<th>Item</th>
+				<th>Acción</th>
+			</tr>
+		</table>
+	</main>
+
+	<script>
+		function badgeAction() {
+			// Quitamos el primer caracter del color
+			const colorMSG = colormensaje.value.slice(1)
+			// Mensaje reemplazamos los espacios por %20
+			const msg = mensaje.value.replaceAll(" ", "%20");
+			// Quitamos el primer caracter del color
+			const colorLABEL = colorlabel.value.slice(1)
+			// Select estilo
+			var e = document.getElementById("estilos");
+			var value = e.value;
+			var text = e.options[e.selectedIndex].text;
+			// Get valor datalist logo
+			let elemento_input = document.getElementById('logInput'); //1
+			let elemento_datalist = document.getElementById('logos'); //2
+			let op_seleccionada = elemento_datalist.querySelector(`[value="${elemento_input.value}"]`); //3
+			let logoName = op_seleccionada.value;
+			// Color del logo
+			// Quitamos el primer caracter del color
+			const colorLOGO = colorlogo.value.slice(1)
+			// logoWidth
+			const anchoLogo = document.getElementById('anchologo').value;
+			// link
+			const linkHref = document.getElementById('link').value;
+			// cacheensegundos
+			const cache = document.getElementById('cacheensegundos').value;
+
+			// Badge con logo y link
+			// ---------------------
+			// Armamos el resultado final
+			let res = `[![${label.value}](https://img.shields.io/badge/${label.value}-${msg}-${colorMSG}?labelColor=${colorLABEL}&style=${text}&logo=${logoName}&logoColor=${colorLOGO}&logoWidth=${anchoLogo}&link=${linkHref}&cacheSeconds=${cache})](${linkHref})`;
+			// Lo mostramos
+			resBadgeLogLink.innerHTML = '<hr><center><u class="color">MARKDOWN Source Code</u></center><hr>' + res;
+
+			res = `<a href="${linkHref}"><img src="https://img.shields.io/badge/${label.value}-${msg}-${colorMSG}?labelColor=${colorLABEL}&style=${text}&logo=${logoName}&logoColor=${colorLOGO}&logoWidth=${anchoLogo}&link=${linkHref}&cacheSeconds=${cache}" alt="${label.value}" /></a>`;
+
+			resBadgeLogLink.innerHTML += '<hr><center><u class="color">Imagen</u><hr>' + res + '</center><hr>';
+
+			res = res.replaceAll("<", "&lt;");
+			res = res.replaceAll(">", "&gt;");
+
+			resBadgeLogLink.innerHTML += '<hr><center><u class="color">HTML Source Code</u></center><hr>' + res + '<hr>';
+
+			// Badge con logo y sin link
+			// ---------------------
+			// Armamos el resultado final
+			res = `[![${label.value}](https://img.shields.io/badge/${label.value}-${msg}-${colorMSG}?labelColor=${colorLABEL}&style=${text}&logo=${logoName}&logoColor=${colorLOGO}&logoWidth=${anchoLogo})]`;
+			// Lo mostramos
+			resBadgeLogSinLink.innerHTML = '<hr><center><u class="color">MARKDOWN Source Code</u></center><hr>' + res;
+
+			res = `<img src="https://img.shields.io/badge/${label.value}-${msg}-${colorMSG}?labelColor=${colorLABEL}&style=${text}&logo=${logoName}&logoColor=${colorLOGO}&logoWidth=${anchoLogo}" alt="${label.value}" />`;
+
+			resBadgeLogSinLink.innerHTML += '<hr><center><u class="color">Imagen</u><hr>' + res + '</center><hr>';
+
+			res = res.replaceAll("<", "&lt;");
+			res = res.replaceAll(">", "&gt;");
+
+			resBadgeLogSinLink.innerHTML += '<hr><center><u class="color">HTML Source Code</u></center><hr>' + res + '<hr>';
+
+			// Badge sin logo y sin link
+			// ---------------------
+			// Armamos el resultado finalcon
+			res = `[![${label.value}](https://img.shields.io/badge/${label.value}-${msg}-${colorMSG}?labelColor=${colorLABEL}&style=${text})]`;
+			// Lo mostramos
+			resBadgeSinLogSinLink.innerHTML = '<hr><center><u class="color">MARKDOWN Source Code</u></center><hr>' + res;
+
+			res = `<img src="https://img.shields.io/badge/${label.value}-${msg}-${colorMSG}?labelColor=${colorLABEL}&style=${text}" alt="${label.value}" />`;
+
+			resBadgeSinLogSinLink.innerHTML += '<hr><center><u class="color">Imagen</u><hr>' + res + '</center><hr>';
+
+			res = res.replaceAll("<", "&lt;");
+			res = res.replaceAll(">", "&gt;");
+
+			resBadgeSinLogSinLink.innerHTML += '<hr><center><u class="color">HTML Source Code</u></center><hr>' + res + '<hr>';
+
+		}
+	</script>
+
+	<script>
+		// Script para la acción de los tabs
+		function openCity(evt, cityName) {
+			var i, tabcontent, tablinks;
+			tabcontent = document.getElementsByClassName("tabcontent");
+			for (i = 0; i < tabcontent.length; i++) {
+				tabcontent[i].style.display = "none";
+			}
+			tablinks = document.getElementsByClassName("tablinks");
+			for (i = 0; i < tablinks.length; i++) {
+				tablinks[i].className = tablinks[i].className.replace(" active", "");
+			}
+			document.getElementById(cityName).style.display = "block";
+			evt.currentTarget.className += " active";
+		}
+	</script>
+</body>
+
+</html>
+
+<!-- 
+Conceptos tenidos en cuenta...
+------------------------------
+
+// label: 		Elinv
+// mensaje:	Hola%20como%20les%20va
+// mensaje color: 	yellow
+// labelColor:	blue
+// style: 		plastic
+// logo:	${mensaje.value}	github
+// logoColor:	cyan
+// logoWidth:	16
+// link:		https://elinv.musica.ar
+// cacheSeconds:	500
+
+// Para Markdown
+//[![Elinv](https://img.shields.io/badge/Elinv-Hola%20como%20les%20va-yellow?labelColor=blue&style=plastic&logo=github&logoColor=cyan&logoWidth=16&link=https://elinv.musica.ar&cacheSeconds=500)](https://elinv.musica.ar)
+
+// Para HTML
+//<a href="https://elinv.musica.ar"><img src="https://img.shields.io/badge/Elinv-Hola%20como%20les%20va-yellow?labelColor=blue&style=plastic&logo=github&logoColor=cyan&logoWidth=16&link=https://elinv.musica.ar&cacheSeconds=500" alt="Elinv" /></a> -->
